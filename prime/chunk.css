@@ -108,6 +108,10 @@ body.smallText {
 	color: var(--selectionColor)
 }
 
+header.css-ejkst0 {
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
 body {
 	background-color: #fff;
 	background-color: var(--background);
