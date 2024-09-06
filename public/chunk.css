@@ -10,14 +10,14 @@ code {
 
 @font-face {
 	font-family: "Marr Sans Web";
-	src: url(/matter/static/media/MarrSansWeb-Regular.a9422004.woff2) format("woff2"), url(/matter/static/media/MarrSansWeb-Regular.759e3341.woff) format("woff");
+	src: url(media/MarrSansWeb-Regular.a9422004.woff2) format("woff2"), url(media/MarrSansWeb-Regular.759e3341.woff) format("woff");
 	font-weight: 400;
 	font-style: normal
 }
 
 @font-face {
 	font-family: "Atlas Typewriter";
-	src: url(/matter/static/media/AtlasTypewriterRegular.ed185206.woff2) format("woff2"), url(/matter/static/media/AtlasTypewriterRegular.277dd983.woff) format("woff");
+	src: url(media/AtlasTypewriterRegular.ed185206.woff2) format("woff2"), url(media/AtlasTypewriterRegular.277dd983.woff) format("woff");
 	font-weight: 400;
 	font-style: normal
 }
@@ -147,5 +147,3 @@ hr {
 	border-color: rgba(0, 0, 0, .1);
 	border-color: var(--border)
 }
-
-/*# sourceMappingURL=main.0e069fdd.chunk.css.map */
