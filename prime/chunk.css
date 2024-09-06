@@ -64,12 +64,12 @@ code {
 
 body.dark {
 	--background: #1a1a1a;
-	--bgT: linear-gradient(147deg, #4d4855 0%, #202020 74%);
+	--bgT: linear-gradient(147deg, #4d4855 0%, #141414 74%);
 	--body: #fff;
 	--backdrop: hsla(15, 0%, 0%, 80%);
 	--dimmed: hsla(0, 0%, 100%, 0.5);
 	--xDimmed: hsla(0, 0%, 100%, 0.2);
-	--border: rgba(0, 0, 0, 0.8);
+	--border: rgba(255, 255, 255, 0.15);
 	--selectionColor: var(--body);
 	--selectionBackground: var(--accent)
 }
