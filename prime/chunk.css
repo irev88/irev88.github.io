@@ -64,7 +64,7 @@ code {
 
 body.dark {
 	--background: #1a1a1a;
-	--bgT: linear-gradient(147deg, #4d4855 0%, #141414 74%);
+	--bgT: linear-gradient(147deg, #4d4855 0%, #202020 74%);
 	--body: #fff;
 	--backdrop: hsla(15, 0%, 0%, 80%);
 	--dimmed: hsla(0, 0%, 100%, 0.5);
