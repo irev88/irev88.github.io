@@ -1,5 +1,3 @@
 # Prime
 
-[hihayk.github.io/matter](https://hihayk.github.io/matter)
-
-![](https://github.com/hihayk/matter/blob/master/docs/shot.png?raw=true)
+[irev88.github.io/prime](https://irev88.github.io/prime)
