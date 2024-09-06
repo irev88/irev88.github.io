@@ -747,7 +747,7 @@
                             return n(!1)
                         }
                     })), a.a.createElement("h1", null, "About Prime"), 
-                        a.a.createElement("p", null, "Less noise, more focus. Prime is a task manager that visually highlights what matters most to you."), 
+                        a.a.createElement("p", null, "Less noise, more focus. Prime is a task manager that visually highlights what is your prime concern at the moment."), 
                         a.a.createElement("br", null), 
                         a.a.createElement("h2", null, "No account needed"), 
                         a.a.createElement("p", null, "Your tasks are stored in your browser (localStorage). Your data will be kept securely until you delete it manually or clear cookies stored."), 
