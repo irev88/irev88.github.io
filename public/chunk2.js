@@ -635,21 +635,21 @@
                         style: {
                             fontWeight: 700
                         }
-                    }, "Matter"), ". A task manager that highlights what matters most to you."), a.a.createElement(b, {
+                    }, "Prime"), ". A task manager that highlights your prime concerns."), a.a.createElement(b, {
                         onClick: function() {
                             i(!0)
                         }
-                    }, "Open Matter"))))
+                    }, "Open Prime"))))
                 },
                 Be = [{
                     id: 1,
-                    title: "Hi \u270c\ufe0e",
+                    title: "Hi 👋",
                     prority: 3,
                     completed: !1,
                     dateAdded: new Date("1/1/2020 00:06")
                 }, {
                     id: 2,
-                    title: "Welcome to Matter",
+                    title: "Welcome to Prime",
                     prority: 7,
                     completed: !1,
                     dateAdded: new Date("1/1/2020 00:05")
@@ -746,16 +746,24 @@
                         onClick: function() {
                             return n(!1)
                         }
-                    })), a.a.createElement("h1", null, "About Matter"), a.a.createElement("p", null, "Less noise, more focus. Matter is a task manager that visually highlights what matters most to you."), a.a.createElement("br", null), a.a.createElement("h2", null, "No account needed"), a.a.createElement("p", null, "Your tasks are stored in your browser (localStorage). Your data will persist until your computer explodes or you delete your browser."), a.a.createElement("br", null), a.a.createElement("h2", null, "Hidden feature"), a.a.createElement("p", null, 'Matter is voice activated. Say "Ok Matter, add task, walk my dog". If it doesn\'t work, try louder.'), a.a.createElement("br", null), a.a.createElement("hr", null), a.a.createElement("br", null), a.a.createElement("p", null, "Made by ", a.a.createElement("a", {
-                        href: "https://hayk.design",
+                    })), a.a.createElement("h1", null, "About Prime"), 
+                        a.a.createElement("p", null, "Less noise, more focus. Prime is a task manager that visually highlights what matters most to you."), 
+                        a.a.createElement("br", null), 
+                        a.a.createElement("h2", null, "No account needed"), 
+                        a.a.createElement("p", null, "Your tasks are stored in your browser (localStorage). Your data will be kept securely until you delete it manually or clear cookies stored."), 
+                        a.a.createElement("br", null), 
+                        a.a.createElement("hr", null), 
+                        a.a.createElement("br", null), 
+                        a.a.createElement("p", null, "Made with ❤️ by ", a.a.createElement("a", {
+                        href: "https://irev88.github.io",
                         target: "_blank",
                         rel: "noopener noreferrer"
-                    }, "Hayk")), a.a.createElement("p", null, a.a.createElement("a", {
-                        href: "https://hayk.design/#/contact",
+                    }, "REV")), a.a.createElement("p", null, a.a.createElement("a", {
+                        href: "https://irev88.github.io/contact",
                         target: "_blank",
                         rel: "noopener noreferrer"
                     }, "Contact")), a.a.createElement("p", null, a.a.createElement("a", {
-                        href: "https://github.com/hihayk/matter",
+                        href: "https://github.com/irev88/irev88.github.io",
                         target: "_blank",
                         rel: "noopener noreferrer"
                     }, "Github"))))))
@@ -930,7 +938,7 @@
                     setAboutModalIsOpen: I
                 }), a.a.createElement(en, null, a.a.createElement(tn, {
                     className: "MainHeaderLeftSection"
-                }, "Matter."), a.a.createElement(nn, null, a.a.createElement(v, {
+                }, "Prime."), a.a.createElement(nn, null, a.a.createElement(v, {
                     className: "headerButtons"
                 }, a.a.createElement(b, {
                     onClick: function() {
