@@ -42,6 +42,7 @@ code {
 	--xDimmed: rgba(0, 0, 0, 0.2);
 	--border: rgba(0, 0, 0, 0.1);
 	--background: #fff;
+	--bgT: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
 	--body: #000;
 	--backdrop: hsla(15, 10%, 90%, 80%);
 	--text-xl: 2rem;
@@ -62,6 +63,7 @@ code {
 
 body.dark {
 	--background: #1a1a1a;
+	--bgT: linear-gradient(147deg, #4d4855 0%, #000000 74%);
 	--body: #fff;
 	--backdrop: hsla(15, 0%, 0%, 80%);
 	--dimmed: hsla(0, 0%, 100%, 0.5);
@@ -108,7 +110,7 @@ body.smallText {
 body {
 	background-color: #fff;
 	background-color: var(--background);
-	background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
+	background-image: var(--bgT);
 	color: #000;
 	color: var(--body);
 	margin: 0;
@@ -121,7 +123,7 @@ ul {
 	list-style: none;
 }
 
-li {
+.css-1tkikiv {
 	background-color: rgba(255, 255, 255, 0);
 }
 
