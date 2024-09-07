@@ -643,7 +643,7 @@
                 },
                 Be = [{
                     id: 1,
-                    title: "Hi ●'◡'●",
+                    title: "Hi  ●'◡'●",
                     prority: 3,
                     completed: !1,
                     dateAdded: new Date("1/1/2020 00:06")
@@ -673,7 +673,7 @@
                     dateAdded: new Date("1/1/2020 00:02")
                 }, {
                     id: 6,
-                    title: "Try dark mode ☾",
+                    title: "Try dark mode  ˚.⋆☾⋆⁺",
                     prority: 1,
                     completed: !1,
                     dateAdded: new Date("1/1/2020 00:01")
