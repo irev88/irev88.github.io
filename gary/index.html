@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimming Fish Animation with Birthday Pop-up (Enhanced)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; 
+      }
+      body {
+
+        background: linear-gradient(180deg, #8ec5fc, #e0c3fc);
+        font-family: 'Poppins', sans-serif; 
+      }
+
+      .ocean {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden; 
+        cursor: pointer; 
+      }
+
+      .wave {
+        position: absolute;
+        left: 0;
+        width: 200%;
+        height: 150px;
+        background-repeat: repeat-x;
+        background-position: bottom;
+        transition: filter 0.5s ease-in-out; 
+        will-change: filter;
+        z-index: 1; 
+      }
+      .wave1 {
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="0.6" d="M0,80 Q250,130 500,80 T1000,80 L1000,150 L0,150 Z"></path></svg>');
+        animation: wave-move 18s linear infinite;
+        opacity: 0.6;
+        bottom: -10px; 
+        z-index: 3; 
+      }
+      .wave2 {
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="0.5" d="M0,90 Q250,40 500,90 T1000,90 L1000,150 L0,150 Z"></path></svg>');
+        animation: wave-move 12s linear infinite;
+        opacity: 0.5;
+        bottom: 0px; 
+        z-index: 2;
+      }
+      .wave3 {
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="0.4" d="M0,100 Q250,150 500,100 T1000,100 L1000,150 L0,150 Z"></path></svg>');
+        animation: wave-move 8s linear infinite;
+        opacity: 0.4;
+        bottom: 10px; 
+        z-index: 1; 
+      }
+      @keyframes wave-move {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .fish {
+        position: absolute;
+        top: 50%;
+        width: 150px;
+        will-change: transform, filter; 
+        z-index: 10; 
+        transition: filter 0.5s ease-in-out; 
+      }
+
+      .fish1 { width: 180px; animation: swim3 12s linear infinite -2s; top: 20%; }
+      .fish3 { width: 90px; animation: swim3 10s linear infinite -1s; top: 50%; }
+      .fish4 { width: 140px; animation: swim3 14s linear infinite -8s; top: 75%; }
+
+      .fish2 { width: 120px; animation: swim-ltr 15s linear infinite -5s; top: 65%; }
+      .fish5 { width: 160px; animation: swim-ltr 11s linear infinite -10s; top: 30%; }
+
+       @keyframes swim3 { 
+        0% { transform: translateX(110vw) translateY(0)  rotate(0deg); }
+        25% { transform: translateX(80vw) translateY(15px)  rotate(12deg); }  
+        50% { transform: translateX(60vw) translateY(-15px)  rotate(-12deg); } 
+        75% { transform: translateX(40vw) translateY(15px)  rotate(12deg); }  
+        100% { transform: translateX(-150px) translateY(0)  rotate(-12deg); } 
+      }
+
+      @keyframes swim-ltr {
+        0% { transform: translateX(-150px) translateY(0) rotate(0deg); }
+        25% { transform: translateX(25vw) translateY(30px) rotate(15deg); }        
+        50% { transform: translateX(50vw) translateY(0) rotate(-15deg); }         
+        75% { transform: translateX(75vw) translateY(-30px) rotate(-15deg); }      
+        100% { transform: translateX(110vw) translateY(0) rotate(15deg); }         
+      }
+
+      .bubble {
+        position: absolute;
+        bottom: -50px; 
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: rise 5s linear forwards;
+        z-index: 20; 
+        transition: filter 0.5s ease-in-out; 
+        will-change: transform, opacity, filter;
+      }
+      @keyframes rise {
+        0% { transform: translateY(0) scale(0.4); opacity: 0; }
+        20% { opacity: 0.7; }
+        90% { opacity: 0.5; }
+        100% { transform: translateY(-110vh) scale(1); opacity: 0; } 
+      }
+
+      .content-blurred {
+        filter: blur(4px) brightness(0.7);
+      }
+
+      #birthday-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.1); 
+        opacity: 0;
+        pointer-events: none; 
+        z-index: 100;
+        transition: opacity 0.6s ease-in-out;
+        text-align: center;
+        overflow: hidden; 
+      }
+
+      #birthday-overlay.active {
+        opacity: 1;
+        pointer-events: auto; 
+      }
+
+      #birthday-overlay h1 {
+        font-family: 'Pacifico', cursive; 
+        font-size: clamp(3rem, 10vw, 6rem); 
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 
+                     0 0 20px rgba(255, 105, 180, 0.6),
+                     0 0 30px rgba(255, 105, 180, 0.4),
+                     2px 2px 5px rgba(0,0,0,0.3); 
+        margin-bottom: 1rem;
+        animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        transform: scale(0); 
+        opacity: 0;
+      }
+
+       #birthday-overlay p {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(1.2rem, 4vw, 2rem); 
+        color: #f0f0f0;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        margin-top: 0;
+        animation: fade-in 0.5s ease-in-out 0.3s forwards; 
+        opacity: 0;
+       }
+
+      @keyframes pop-in {
+          to {
+              transform: scale(1);
+              opacity: 1;
+          }
+      }
+       @keyframes fade-in {
+          to {
+              opacity: 1;
+          }
+      }
+
+      #confetti-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none; 
+          overflow: hidden;
+          z-index: 101; 
+      }
+
+      .confetti {
+          position: absolute;
+          width: 10px;
+          height: 15px;
+          background-color: #f00; 
+          opacity: 0.9;
+          border-radius: 2px;
+          will-change: transform, opacity;
+          top: -20px; 
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="ocean" id="ocean-area">
+
+      <!-- Seabed DIV Removed -->
+
+      <div class="wave wave3"></div>
+      <div class="wave wave2"></div>
+      <div class="wave wave1"></div>
+
+      <!-- Fish 1 (RTL) -->
+      <svg class="fish fish1" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="fishGradient1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ff6f61; stop-opacity:1" /><stop offset="100%" style="stop-color:#ffd3b6; stop-opacity:1" /></linearGradient></defs>
+        <path d="M20 50 Q60 10, 120 50 Q60 90, 20 50 Z" fill="url(#fishGradient1)" />
+        <circle cx="35" cy="45" r="5" fill="#fff" /><circle cx="35" cy="45" r="2.5" fill="#333" />
+        <path d="M70,50 Q60,30,50,50 Q60,40,70,50" fill="rgba(255,255,255,0.6)" />
+      </svg>
+      <!-- Fish 2 (LTR) -->
+      <svg class="fish fish2" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="fishGradient2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#6fffe9; stop-opacity:1" /><stop offset="100%" style="stop-color:#b6ffea; stop-opacity:1" /></linearGradient></defs>
+        <path d="M180 50 Q140 10, 80 50 Q140 90, 180 50 Z" fill="url(#fishGradient2)" />
+        <circle cx="165" cy="45" r="5" fill="#fff" /><circle cx="165" cy="45" r="2.5" fill="#333" />
+        <path d="M130,50 Q140,30,150,50 Q140,40,130,50" fill="rgba(255,255,255,0.6)" />
+      </svg>
+      <!-- Fish 3 (RTL) -->
+      <svg class="fish fish3" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="fishGradient3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ffa6ff; stop-opacity:1" /><stop offset="100%" style="stop-color:#d9b3ff; stop-opacity:1" /></linearGradient></defs>
+        <path d="M20 50 Q60 20, 150 50 Q60 80, 20 50 Z" fill="url(#fishGradient3)" />
+        <circle cx="35" cy="45" r="4" fill="#fff" /><circle cx="35" cy="45" r="2" fill="#333" />
+        <path d="M80,50 Q70,35,60,50 Q70,40,80,50" fill="rgba(255,255,255,0.6)" />
+      </svg>
+      <!-- Fish 4 (RTL) -->
+       <svg class="fish fish4" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="fishGradient4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ffcc33; stop-opacity:1" /><stop offset="100%" style="stop-color:#ffe699; stop-opacity:1" /></linearGradient></defs>
+        <path d="M25 50 Q70 15, 130 50 Q70 85, 25 50 Z" fill="url(#fishGradient4)" />
+        <circle cx="40" cy="45" r="4.5" fill="#fff" /><circle cx="40" cy="45" r="2" fill="#333" />
+        <path d="M75,50 Q65,35,55,50 Q65,40,75,50" fill="rgba(255,255,255,0.6)" />
+      </svg>
+      <!-- Fish 5 (LTR) -->
+      <svg class="fish fish5" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="fishGradient5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#b39ddb; stop-opacity:1" /><stop offset="100%" style="stop-color:#ede7f6; stop-opacity:1" /></linearGradient></defs>
+         <path d="M170 50 Q130 20, 70 50 Q130 80, 170 50 Z" fill="url(#fishGradient5)" />
+        <circle cx="155" cy="48" r="5" fill="#fff" /><circle cx="155" cy="48" r="2.5" fill="#333" />
+        <path d="M120,50 Q130,30,140,50 Q130,40,120,50" fill="rgba(255,255,255,0.6)" />
+      </svg>
+
+      <div id="birthday-overlay">
+          <div id="confetti-container"></div>
+          <h1>Happy Birthday!</h1>
+          <p>Gary -- best 16th!</p>
+      </div>
+    </div>
+
+    <script>
+      const oceanArea = document.getElementById('ocean-area');
+      const birthdayOverlay = document.getElementById('birthday-overlay');
+      const confettiContainer = document.getElementById('confetti-container');
+      let isBirthdayActive = false; 
+
+      let lastBubbleTime = 0;
+      const bubbleInterval = 600; 
+
+      function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        if (isBirthdayActive) {
+            bubble.classList.add('content-blurred');
+        }
+        const size = Math.random() * 17 + 8;
+        bubble.style.width = size + "px";
+        bubble.style.height = size + "px";
+        bubble.style.left = Math.random() * (window.innerWidth - size) + "px";
+
+        oceanArea.appendChild(bubble);
+
+        bubble.addEventListener("animationend", () => {
+          bubble?.remove(); 
+        });
+      }
+
+      function bubbleLoop(timestamp) {
+        if (!lastBubbleTime || timestamp - lastBubbleTime >= bubbleInterval) {
+          if(Math.random() > 0.3) { 
+             createBubble();
+          }
+          lastBubbleTime = timestamp;
+        }
+        requestAnimationFrame(bubbleLoop);
+      }
+      requestAnimationFrame(bubbleLoop); 
+
+      const confettiColors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+      const confettiCount = 150; 
+
+      function createSingleConfetti() {
+          const confetti = document.createElement('div');
+          confetti.classList.add('confetti');
+
+          const randomColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          const randomLeft = Math.random() * 100 + 'vw'; 
+          const randomDuration = Math.random() * 3 + 2; 
+          const randomDelay = Math.random() * 2; 
+
+          confetti.style.backgroundColor = randomColor;
+          confetti.style.left = randomLeft;
+
+          const horizontalMovement = (Math.random() - 0.5) * 200; 
+          const rotationEnd = (Math.random() - 0.5) * 1080 + 720; 
+
+          const animation = confetti.animate([
+              { transform: `translate(0, -20px) rotateZ(0deg)`, opacity: 1 }, 
+              { transform: `translate(${horizontalMovement}px, 110vh) rotateZ(${rotationEnd}deg)`, opacity: 0 } 
+          ], {
+              duration: randomDuration * 1000, 
+              delay: randomDelay * 1000, 
+              easing: 'linear', 
+              fill: 'forwards' 
+          });
+
+          confettiContainer.appendChild(confetti);
+
+          animation.onfinish = () => {
+               confetti?.remove();
+          };
+      }
+
+      function triggerConfetti() {
+          for (let i = 0; i < confettiCount; i++) {
+
+              setTimeout(() => createSingleConfetti(), i * 10);
+          }
+      }
+
+      oceanArea.addEventListener('click', () => {
+          if (isBirthdayActive) {
+              return; 
+          }
+          isBirthdayActive = true;
+
+          const elementsToBlur = document.querySelectorAll('.wave, .fish, .bubble');
+          elementsToBlur.forEach(el => el.classList.add('content-blurred'));
+
+          birthdayOverlay.classList.add('active');
+
+          triggerConfetti();
+
+      }, { once: false });
+
+    </script>
+  </body>
+</html>
